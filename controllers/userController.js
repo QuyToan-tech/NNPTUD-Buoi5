@@ -1,5 +1,14 @@
 const User = require('../models/User');
 
+exports.createUser = async (req, res) => {
+    try {
+        const newUser = new User(req.body);
+        const savedUser = await newUser.save();
+        res.status(201).json(savedUser);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 // Get All (Chỉ lấy user chưa xóa)
 exports.getAllUsers = async (req, res) => {
     const users = await User.find({ isDeleted: false }).populate('role');

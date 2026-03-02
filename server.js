@@ -16,6 +16,7 @@ app.post('/roles', roleCtrl.createRole);
 app.get('/roles', roleCtrl.getRoles);
 
 // Routes cho User (CRUD)
+app.post('/users', userCtrl.createUser);
 app.get('/users', userCtrl.getAllUsers);
 app.get('/users/:id', userCtrl.getUserById);
 app.delete('/users/:id', userCtrl.softDelete);
